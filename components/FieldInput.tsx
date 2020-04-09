@@ -11,21 +11,19 @@ type Props = {
   handlerOnBlur(event: React.FocusEvent<HTMLInputElement>): void;
 }
 
-const FieldInput: React.FC<Props> = (props) => {
-  return (
-    <Fieldset className={props.valid}>
-      <Legend className={props.valid}>{props.text}</Legend>
-      <Input
-        name={props.name}
-        type="text"
-        value={props.value}
-        placeholder={props.placeholder}
-        onChange={props.handlerOnChange}
-        onBlur={props.handlerOnBlur}
-        ref={props.inputRef}
-      />
-    </Fieldset>
-  );
-};
+const FieldInput: React.FC<Props> = (props) => (
+  <Fieldset className={props.valid}>
+    <Legend className={props.valid}>{props.text}</Legend>
+    <Input
+      name={props.name}
+      type="text"
+      value={props.value}
+      placeholder={props.placeholder}
+      onChange={props.handlerOnChange}
+      onBlur={props.handlerOnBlur}
+      ref={props.inputRef}
+    />
+  </Fieldset>
+);
 
 export default FieldInput;

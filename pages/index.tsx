@@ -10,14 +10,12 @@ type Props = {
   list: List[];
 }
 
-const Index: React.FC<Props> = ({ list }) => {
-  return (
-    <Page>
-      <Title>Выберите оператора</Title>
-      <Operator list={list} />
-    </Page>
-  );
-};
+const Index: React.FC<Props> = ({ list }) => (
+  <Page>
+    <Title>Выберите оператора</Title>
+    <Operator list={list} />
+  </Page>
+);;
 
 export const getStaticProps: GetStaticProps = async () => {
   const res = await fetch("http://localhost:3000/api");
