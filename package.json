@@ -1,0 +1,36 @@
+{
+  "name": "test-mobile",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "next": "^9.3.4",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "styled-components": "^5.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^12.12.34",
+    "@types/node-fetch": "^2.5.5",
+    "@types/react": "^16.9.32",
+    "@types/react-dom": "^16.9.6",
+    "@types/styled-components": "^5.0.1",
+    "typescript": "^3.8.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nile-outcast/test-mobile.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nile-outcast/test-mobile/issues"
+  },
+  "homepage": "https://github.com/nile-outcast/test-mobile#readme",
+  "description": ""
+}
