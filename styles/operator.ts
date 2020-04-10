@@ -15,7 +15,8 @@ export const Li = styled.li`
 
   &:hover {
     font-weight: bold;
-    background-color: lightgray;
+    background-color: LightCyan;
+    border: 1.5px solid gray;
   }
 `;
 

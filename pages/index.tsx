@@ -3,7 +3,7 @@ import { List } from "../interfaces/List"
 
 import Page from "../components/Page";
 import Operator from "../components/Operator";
-import { Title } from "../styles/id";
+import { Title } from "../styles/header";
 import fetch from "node-fetch";
 
 type Props = {

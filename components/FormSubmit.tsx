@@ -1,16 +1,12 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, FormEvent, ChangeEvent, FocusEvent } from "react";
 import FieldInput from "./FieldInput";
 import isValidPhone from "../utils/isValidPhone";
 import phoneMask from "../utils/phoneMask";
-import { Form, Button } from "../styles/id";
-
-type Status = {
-  valid: string;
-  text: string;
-}
+import { Form, Button } from "../styles/formSubmit";
+import { Status } from "../interfaces/Status"
 
 interface Props {
-  handlerOnSubmit: (event: React.FormEvent<HTMLFormElement>) => void
+  handlerOnSubmit: (event: FormEvent<HTMLFormElement>) => void
 }
 
 const FormSubmit: React.FC<Props> = (props) => {
@@ -30,9 +26,9 @@ const FormSubmit: React.FC<Props> = (props) => {
 
   useEffect(() => { inputRef.current!.focus() }, []);
 
-  const handlerOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const name = event.target.name;
-    const value = event.target.value;
+  const handlerOnChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const name: string = event.target.name;
+    const value: string = event.target.value;
 
     if (name === "phone") {
       setPhone((prev) => phoneMask(value));
@@ -45,8 +41,8 @@ const FormSubmit: React.FC<Props> = (props) => {
     }
   };
 
-  const handlerOnBlur = (event: React.FocusEvent<HTMLInputElement>) => {
-    const name = event.target.name;
+  const handlerOnBlur = (event: FocusEvent<HTMLInputElement>) => {
+    const name: string = event.target.name;
 
     if (name === "phone") {
       !isValidPhone(phone)
@@ -74,8 +70,7 @@ const FormSubmit: React.FC<Props> = (props) => {
       <FieldInput
         name="phone"
         value={phone}
-        text={phoneStatus.text}
-        valid={phoneStatus.valid}
+        status={phoneStatus}
         handlerOnChange={handlerOnChange}
         handlerOnBlur={handlerOnBlur}
         inputRef={inputRef}
@@ -83,8 +78,7 @@ const FormSubmit: React.FC<Props> = (props) => {
       <FieldInput
         name="sum"
         value={sum}
-        text={sumStatus.text}
-        valid={sumStatus.valid}
+        status={sumStatus}
         placeholder="не более 1000"
         handlerOnChange={handlerOnChange}
         handlerOnBlur={handlerOnBlur}

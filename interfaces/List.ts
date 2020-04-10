@@ -1,4 +1,4 @@
-export type List = {
+export interface List {
   id: number;
   name: string;
 };

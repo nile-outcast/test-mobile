@@ -1,8 +1,8 @@
 import React from 'react';
-import { MessageConteiner, StatusMessageDiv } from "../styles/id";
+import { MessageConteiner, StatusMessageDiv } from "../styles/statusMessage";
 import { MesStatus } from "../interfaces/Status"
 
-type Props = {
+interface Props {
   status: MesStatus;
 }
 
