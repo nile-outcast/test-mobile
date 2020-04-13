@@ -1,12 +1,16 @@
 import React from "react";
-import { Title, HeaderDiv } from "../styles/header";
+import { HeadTitle, HeaderDiv } from "../styles/header";
 
 const Header: React.FC = () => (
   <HeaderDiv>
     <span style={{ verticalAlign: "middle" }}>
-      <img style={{ height: "1.3em" }} src="/phone_icon_32.png" alt="phone icon" />
+      <img
+        style={{ height: "1em", marginRight: "0.5em" }}
+        src="/icon.png"
+        alt="phone icon"
+      />
     </span>
-    <Title>Оплата мобильной связи</Title>
+    <HeadTitle>Оплата мобильной связи</HeadTitle>
   </HeaderDiv>
 );
 

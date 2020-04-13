@@ -1,9 +1,17 @@
 import styled from "styled-components";
 
 export const BodyDiv = styled.div`
+  display: flex;
+  align-items: center;
   text-align: center;
-  padding: 5em 0;
+  padding: 3em 0;
   background-color: LemonChiffon;
+  flex: auto;
+  justify-content: center;
+
+  @media (min-height: 500px) and (min-width: 420px) {
+    padding: 3em 0 5em;
+  }
 `;
 
 export const Conteiner = styled.div`
@@ -13,7 +21,4 @@ export const Conteiner = styled.div`
   text-align: center;
   background-color: white;
   border: 0.5px solid DarkGray;
-
-  @media (max-width: 600px) {
-  }
 `;

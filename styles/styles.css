@@ -6,6 +6,12 @@ body {
   margin: 0;
 }
 
+#__next {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 @media screen and (max-width: 380px) {
   body {
     font-size: 14px;

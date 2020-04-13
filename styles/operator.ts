@@ -15,41 +15,41 @@ export const Li = styled.li`
 
   &:hover {
     font-weight: bold;
-    background-color: LightCyan;
+    background-color: PowderBlue;
     border: 1.5px solid gray;
   }
 `;
 
 type Props = {
-  length: number,
-}
+  length: number;
+};
 
 export const Ul = styled.ul`
   margin: 0;
   padding-left: 2em;
 
-  @media (min-width: ${(props: Props) => props.length >= 8 ? '1500px' : ''}) {
+  @media (min-width: ${(props: Props) => (props.length >= 8 ? "1500px" : "")}) {
     width: 1380px;
   }
 
   @media (max-width: 1460px) {
-    width: ${props => props.length >= 7 ? '1200px' : ''};
+    width: ${(props) => (props.length >= 7 ? "1200px" : "")};
   }
 
   @media (max-width: 1290px) {
-    width: ${props => props.length >= 6 ? '1030px' : ''};
+    width: ${(props) => (props.length >= 6 ? "1030px" : "")};
   }
 
   @media (max-width: 1110px) {
-    width: ${props => props.length >= 5 ? '860px' : ''};
+    width: ${(props) => (props.length >= 5 ? "860px" : "")};
   }
 
   @media (max-width: 940px) {
-    width: ${props => props.length >= 4 ? '690px' : ''};
+    width: ${(props) => (props.length >= 4 ? "690px" : "")};
   }
 
   @media (max-width: 770px) {
-    width: ${props => props.length >= 3 ? '520px' : ''};
+    width: ${(props) => (props.length >= 3 ? "520px" : "")};
   }
 
   @media (max-width: 600px) {

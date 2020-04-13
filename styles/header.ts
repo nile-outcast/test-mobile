@@ -7,10 +7,15 @@ export const HeaderDiv = styled.div`
   background-color: Moccasin;
 `;
 
+export const HeadTitle = styled.h3`
+  display: inline-block;
+  color: dimgray;
+  cursor: pointer;
+`;
+
 export const Title = styled.h3`
+  font-size: 1.3em;
   display: inline-block;
   color: seagreen;
   cursor: pointer;
 `;
-
-

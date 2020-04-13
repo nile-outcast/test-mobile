@@ -6,24 +6,24 @@ interface Props {
 }
 
 export const MessageConteiner = styled.div<Props>`
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 999;
+  z-index: 99;
   opacity: 0.3;
   background-color: gray;
   display: ${(props) => (props.display === "true" ? "" : "none")};
 `;
 
 export const StatusMessageDiv = styled.div<Props>`
-  font-size: 1.3em;
+  font-size: 2em;
   position: fixed;
-  top: 30%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 1000;
+  z-index: 100;
   display: ${(props) => (props.display === "true" ? "" : "none")};
   padding: 0 1em;
   background-color: white;

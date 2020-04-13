@@ -1,10 +1,10 @@
 import React from "react";
-import { Title, HeaderDiv } from "../styles/header";
+import { HeadTitle, HeaderDiv } from "../styles/header";
 
 const Footer: React.FC = () => (
   <HeaderDiv>
-    <Title>Каталог услуг</Title>
+    <HeadTitle>Каталог услуг</HeadTitle>
   </HeaderDiv>
 );
 
-export default Footer
+export default Footer;
