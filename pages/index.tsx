@@ -3,7 +3,6 @@ import { List } from "../interfaces/List";
 
 import Page from "../components/Page";
 import Operator from "../components/Operator";
-import operatorsList from "../utils/operatorsList"
 import { Title } from "../styles/header";
 import fetch from "node-fetch";
 
@@ -19,9 +18,8 @@ const Index: React.FC<Props> = ({ list }) => (
 );
 
 export const getStaticProps: GetStaticProps = async () => {
-  //const res = await fetch("http://localhost:3000/api");
-  //const list: List[] = await res.json();
-  const list: List[] = operatorsList;
+  const res = await fetch("https://test-mobile.now.sh/api");
+  const list: List[] = await res.json();
   return { props: { list } };
 };
 
