@@ -53,8 +53,8 @@ export default function Operator() {
 
     try {
       const res = await fetch(
-        `http://localhost:3000/api/operators/${router.query.id}`
-        //`https://test-mobile.now.sh/api/operators/${router.query.id}`
+        //`http://localhost:3000/api/operators/${router.query.id}`
+        `https://test-mobile.now.sh/api/operators/${router.query.id}`
       );
       const data = await res.json();
       setMesStatus((prev) => ({
