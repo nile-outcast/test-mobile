@@ -1,12 +1,19 @@
-import { useState, useEffect, useRef, FormEvent, ChangeEvent, FocusEvent } from "react";
+import {
+  useState,
+  useEffect,
+  useRef,
+  FormEvent,
+  ChangeEvent,
+  FocusEvent,
+} from "react";
 import FieldInput from "./FieldInput";
 import isValidPhone from "../utils/isValidPhone";
 import phoneMask from "../utils/phoneMask";
 import { Form, Button } from "../styles/formSubmit";
-import { Status } from "../interfaces/Status"
+import { Status } from "../interfaces/Status";
 
 interface Props {
-  handlerOnSubmit: (event: FormEvent<HTMLFormElement>) => void
+  handlerOnSubmit: (event: FormEvent<HTMLFormElement>) => void;
 }
 
 const FormSubmit: React.FC<Props> = (props) => {
@@ -24,45 +31,41 @@ const FormSubmit: React.FC<Props> = (props) => {
     text: "Укажите сумму платежа",
   });
 
-  useEffect(() => { inputRef.current!.focus() }, []);
+  useEffect(() => {
+    inputRef.current!.focus();
+  }, []);
 
-  const handlerOnChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const name: string = event.target.name;
+  const handlerOnChangePhone = (event: ChangeEvent<HTMLInputElement>) => {
     const value: string = event.target.value;
-
-    if (name === "phone") {
-      setPhone((prev) => phoneMask(value));
-    }
-
-    if (name === "sum") {
-      isNaN(Number(value)) || value.includes(" ")
-        ? ""
-        : setSum((prev) => (value[0] === "0" ? prev : value));
-    }
+    setPhone((prev) => phoneMask(value));
   };
 
-  const handlerOnBlur = (event: FocusEvent<HTMLInputElement>) => {
-    const name: string = event.target.name;
-
-    if (name === "phone") {
-      !isValidPhone(phone)
-        ? setPhoneStatus((prev) => ({
+  const handlerOnBlurPhone = (event: FocusEvent<HTMLInputElement>) => {
+    !isValidPhone(phone)
+      ? setPhoneStatus((prev) => ({
           valid: "false",
           text: "Не верный номер",
         }))
-        : setPhoneStatus((prev) => ({
+      : setPhoneStatus((prev) => ({
           valid: "true",
           text: "Номер получателя",
         }));
-    }
-    if (name === "sum") {
-      !Number(sum) || Number(sum) > 1000
-        ? setSumStatus((prev) => ({
+  };
+
+  const handlerOnChangeSum = (event: ChangeEvent<HTMLInputElement>) => {
+    const value: string = event.target.value;
+    isNaN(Number(value)) || value.includes(" ")
+      ? ""
+      : setSum((prev) => (value[0] === "0" ? prev : value));
+  };
+
+  const handlerOnBlurSum = (event: FocusEvent<HTMLInputElement>) => {
+    !Number(sum) || Number(sum) > 1000
+      ? setSumStatus((prev) => ({
           valid: "false",
           text: "Не верная сумма платежа",
         }))
-        : setSumStatus((prev) => ({ valid: "true", text: "Сумма платежа" }));
-    }
+      : setSumStatus((prev) => ({ valid: "true", text: "Сумма платежа" }));
   };
 
   return (
@@ -71,8 +74,8 @@ const FormSubmit: React.FC<Props> = (props) => {
         name="phone"
         value={phone}
         status={phoneStatus}
-        handlerOnChange={handlerOnChange}
-        handlerOnBlur={handlerOnBlur}
+        handlerOnChange={handlerOnChangePhone}
+        handlerOnBlur={handlerOnBlurPhone}
         inputRef={inputRef}
       />
       <FieldInput
@@ -80,13 +83,13 @@ const FormSubmit: React.FC<Props> = (props) => {
         value={sum}
         status={sumStatus}
         placeholder="не более 1000"
-        handlerOnChange={handlerOnChange}
-        handlerOnBlur={handlerOnBlur}
+        handlerOnChange={handlerOnChangeSum}
+        handlerOnBlur={handlerOnBlurSum}
       />
       <br />
       <Button type="submit">Оплатить</Button>
     </Form>
   );
-}
+};
 
 export default FormSubmit;
