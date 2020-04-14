@@ -5,4 +5,5 @@ export default (reg: NextApiRequest, res: NextApiResponse) => {
   num > 5
     ? res.status(200).json({ message: `Успешно!` })
     : res.status(400).json({ message: `Ошибка!` });
+  res.end
 };

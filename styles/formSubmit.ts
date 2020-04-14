@@ -16,11 +16,13 @@ export const Button = styled.button`
   margin: 0 2em;
   color: gray;
   border: 1.5px solid lightgray;
+  transition: .3s;
 
   &:hover {
     color: black;
-    background-color: PowderBlue;
+    background-color: #b2d9c0;
     border: 1.5px solid gray;
+    box-shadow: 0 13px 12px -10px rgba(0,0,0, .5);
   }
 
   @media (max-width: 610px) {

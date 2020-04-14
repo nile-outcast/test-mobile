@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 export const Li = styled.li`
+  position: relative;
+  left: 0;
   display: inline-block;
   font-size: 1.2em;
   list-style: none;
@@ -9,13 +11,20 @@ export const Li = styled.li`
   height: 2em;
   line-height: 2em;
   margin: 1em 0;
-  margin-right: 2em;
+  margin-right: 40px;
+  background-color: #e9f2ec;
   border: 1.5px solid lightgray;
   border-radius: 5px;
+  box-shadow: 0 10px 8px -10px rgba(0,0,0, .5);
+  transition: .3s ease-in-out;
 
   &:hover {
+    width: 150px;
+    left: -10px;
+    margin-right: 20px;
     font-weight: bold;
-    background-color: PowderBlue;
+    background-color: #b2d9c0;    
+    box-shadow: 0 15px 15px -10px rgba(0,0,0, .5);
     border: 1.5px solid gray;
   }
 `;
@@ -26,37 +35,37 @@ type Props = {
 
 export const Ul = styled.ul`
   margin: 0;
-  padding-left: 2em;
+  padding-left: 40px;
 
   @media (min-width: ${(props: Props) => (props.length >= 8 ? "1500px" : "")}) {
-    width: 1380px;
+    width: 1385px;
   }
 
-  @media (max-width: 1460px) {
-    width: ${(props) => (props.length >= 7 ? "1200px" : "")};
+  @media (max-width: 1480px) {
+    width: ${(props) => (props.length >= 7 ? "1215px" : "")};
   }
 
-  @media (max-width: 1290px) {
-    width: ${(props) => (props.length >= 6 ? "1030px" : "")};
+  @media (max-width: 1310px) {
+    width: ${(props) => (props.length >= 6 ? "1045px" : "")};
   }
 
-  @media (max-width: 1110px) {
-    width: ${(props) => (props.length >= 5 ? "860px" : "")};
+  @media (max-width: 1140px) {
+    width: ${(props) => (props.length >= 5 ? "875px" : "")};
   }
 
-  @media (max-width: 940px) {
-    width: ${(props) => (props.length >= 4 ? "690px" : "")};
+  @media (max-width: 970px) {
+    width: ${(props) => (props.length >= 4 ? "705px" : "")};
   }
 
-  @media (max-width: 770px) {
-    width: ${(props) => (props.length >= 3 ? "520px" : "")};
+  @media (max-width: 800px) {
+    width: ${(props) => (props.length >= 3 ? "535px" : "")};
   }
 
-  @media (max-width: 600px) {
-    width: 350px;
+  @media (max-width: 630px) {
+    width: 365px;
   }
 
-  @media (max-width: 430px) {
+  @media (max-width: 460px) {
     width: 225px;
   }
 `;

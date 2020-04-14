@@ -17,5 +17,4 @@ export const Title = styled.h3`
   font-size: 1.3em;
   display: inline-block;
   color: seagreen;
-  cursor: pointer;
 `;
