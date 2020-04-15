@@ -6,14 +6,13 @@ const phoneMask = (value: string): string => {
 
   if (def.length >= val.length) val = def;
 
-  let maskedPhone = mask.replace(/./g, function (match) {
+  let maskedPhone: string = mask.replace(/./g, function (match) {
     if (/[_\d]/.test(match) && i < val.length) {
       return val[i++];
-    } else if (i >= val.length) {
-      return "";
-    } else {
+    } else if (i < val.length) {
       return match;
     }
+    return "";
   });
 
   return maskedPhone;

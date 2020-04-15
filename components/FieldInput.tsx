@@ -1,4 +1,4 @@
-import { RefObject, ChangeEvent, FocusEvent } from "react";
+import { RefObject, ChangeEvent } from "react";
 import { Fieldset, Legend, Input } from "../styles/fieldInput";
 import { Status } from "../interfaces/Status"
 
@@ -9,7 +9,7 @@ type Props = {
   status: Status;
   inputRef?: RefObject<HTMLInputElement>;
   handlerOnChange(event: ChangeEvent<HTMLInputElement>): void;
-  handlerOnBlur(event: FocusEvent<HTMLInputElement>): void;
+  handlerOnBlur(): void;
 }
 
 const FieldInput: React.FC<Props> = (props) => (

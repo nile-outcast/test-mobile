@@ -35,8 +35,8 @@ export default function Operator() {
   const handlerOnSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const target = event.target as typeof event.target & InputElements;
-    const phone = target.phone.value;
-    const sum = target.sum.value;
+    const phone: string = target.phone.value;
+    const sum: string = target.sum.value;
 
     target.phone.blur();
     target.sum.blur();
@@ -46,15 +46,17 @@ export default function Operator() {
       return;
     }
 
-    if (!Number(sum) || Number(sum) > 1000) {
+    const isValidSum: boolean = !Number(sum) || Number(sum) > 1000;
+
+    if (isValidSum) {
       target.sum.focus();
       return;
     }
 
     try {
       const res = await fetch(
-        //`http://localhost:3000/api/operators/${router.query.id}`
-        `https://test-mobile.now.sh/api/operators/${router.query.id}`
+        `http://localhost:3000/api/operators/${router.query.id}`
+        //`https://test-mobile.now.sh/api/operators/${router.query.id}`
       );
       const data = await res.json();
       setMesStatus((prev) => ({

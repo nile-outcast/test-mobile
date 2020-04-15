@@ -4,7 +4,6 @@ import {
   useRef,
   FormEvent,
   ChangeEvent,
-  FocusEvent,
 } from "react";
 import FieldInput from "./FieldInput";
 import isValidPhone from "../utils/isValidPhone";
@@ -40,32 +39,36 @@ const FormSubmit: React.FC<Props> = (props) => {
     setPhone((prev) => phoneMask(value));
   };
 
-  const handlerOnBlurPhone = (event: FocusEvent<HTMLInputElement>) => {
-    !isValidPhone(phone)
-      ? setPhoneStatus((prev) => ({
-          valid: "false",
-          text: "Не верный номер",
-        }))
-      : setPhoneStatus((prev) => ({
-          valid: "true",
-          text: "Номер получателя",
-        }));
+  const handlerOnBlurPhone = () => {
+    if (isValidPhone(phone)) {
+      setPhoneStatus((prev) => ({
+        valid: "true",
+        text: "Номер получателя",
+      }));
+    } else {
+      setPhoneStatus((prev) => ({
+        valid: "false",
+        text: "Не верный номер",
+      }))
+    }
   };
 
   const handlerOnChangeSum = (event: ChangeEvent<HTMLInputElement>) => {
     const value: string = event.target.value;
-    isNaN(Number(value)) || value.includes(" ")
-      ? ""
-      : setSum((prev) => (value[0] === "0" ? prev : value));
+    const isSumNumber: boolean = isNaN(Number(value)) || value.includes(" ");
+    if (!isSumNumber) setSum((prev) => (value[0] === "0" ? prev : value));
   };
 
-  const handlerOnBlurSum = (event: FocusEvent<HTMLInputElement>) => {
-    !Number(sum) || Number(sum) > 1000
-      ? setSumStatus((prev) => ({
-          valid: "false",
-          text: "Не верная сумма платежа",
-        }))
-      : setSumStatus((prev) => ({ valid: "true", text: "Сумма платежа" }));
+  const handlerOnBlurSum = () => {
+    const isValidSum: boolean = !Number(sum) || Number(sum) > 1000;
+    if (isValidSum) {
+      setSumStatus((prev) => ({
+        valid: "false",
+        text: "Не верная сумма платежа",
+      }))
+    } else {
+      setSumStatus((prev) => ({ valid: "true", text: "Сумма платежа" }));
+    }
   };
 
   return (
