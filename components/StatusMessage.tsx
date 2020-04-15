@@ -9,7 +9,7 @@ interface Props {
 const StatusMessage: React.FC<Props> = ({ status }) => (
   <>
     <MessageConteiner display={status.display} />
-    <StatusMessageDiv status={status.status} display={status.display}>
+    <StatusMessageDiv display={status.display} status={status.status}>
       <p>{status.message} </p>
     </StatusMessageDiv>
   </>

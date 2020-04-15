@@ -7,11 +7,11 @@ export const Fieldset = styled.fieldset`
   padding: 1px;
   margin: 1em 2em 2em 0;
 
-  &.true {
+  &.correct {
     border-color: seagreen;
   }
 
-  &.false {
+  &.wrong {
     border-color: red;
   }
 
@@ -22,12 +22,13 @@ export const Fieldset = styled.fieldset`
 `;
 
 export const Legend = styled.legend`
-  &.false {
-    color: red;
+
+  &.correct {
+    color: seagreen;
   }
 
-  &.true {
-    color: seagreen;
+  &.wrong {
+    color: red;
   }
 `;
 

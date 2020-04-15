@@ -20,13 +20,11 @@ const FormSubmit: React.FC<Props> = (props) => {
 
   const [phone, setPhone] = useState<string>("+7");
   const [phoneStatus, setPhoneStatus] = useState<Status>({
-    valid: "",
     text: "Введите номер",
   });
 
   const [sum, setSum] = useState<string>("");
   const [sumStatus, setSumStatus] = useState<Status>({
-    valid: "",
     text: "Укажите сумму платежа",
   });
 
@@ -42,12 +40,12 @@ const FormSubmit: React.FC<Props> = (props) => {
   const handlerOnBlurPhone = () => {
     if (isValidPhone(phone)) {
       setPhoneStatus((prev) => ({
-        valid: "true",
+        valid: true,
         text: "Номер получателя",
       }));
     } else {
       setPhoneStatus((prev) => ({
-        valid: "false",
+        valid: false,
         text: "Не верный номер",
       }))
     }
@@ -63,11 +61,11 @@ const FormSubmit: React.FC<Props> = (props) => {
     const isValidSum: boolean = !Number(sum) || Number(sum) > 1000;
     if (isValidSum) {
       setSumStatus((prev) => ({
-        valid: "false",
+        valid: false,
         text: "Не верная сумма платежа",
       }))
     } else {
-      setSumStatus((prev) => ({ valid: "true", text: "Сумма платежа" }));
+      setSumStatus((prev) => ({ valid: true, text: "Сумма платежа" }));
     }
   };
 

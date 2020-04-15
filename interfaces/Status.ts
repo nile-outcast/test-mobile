@@ -1,10 +1,10 @@
 export interface MesStatus {
-  display: string;
+  display: boolean;
   status?: number;
   message?: string;
 }
 
 export interface Status {
-  valid: string;
+  valid?: boolean;
   text: string;
 }

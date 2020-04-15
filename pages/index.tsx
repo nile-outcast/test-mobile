@@ -18,8 +18,8 @@ const Index: React.FC<Props> = ({ list }) => (
 );
 
 export const getStaticProps: GetStaticProps = async () => {
-  //const res = await fetch("http://localhost:3000/api");
-  const res = await fetch("https://test-mobile.now.sh/api");
+  const res = await fetch("http://localhost:3000/api");
+  //const res = await fetch("https://test-mobile.now.sh/api");
   const list: List[] = await res.json();
   return { props: { list } };
 };
