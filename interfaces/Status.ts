@@ -5,6 +5,6 @@ export interface MesStatus {
 }
 
 export interface Status {
-  valid?: boolean;
+  className?: string;
   text: string;
 }

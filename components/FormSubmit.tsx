@@ -1,10 +1,4 @@
-import {
-  useState,
-  useEffect,
-  useRef,
-  FormEvent,
-  ChangeEvent,
-} from "react";
+import { useState, useEffect, useRef, FormEvent, ChangeEvent } from "react";
 import FieldInput from "./FieldInput";
 import isValidPhone from "../utils/isValidPhone";
 import phoneMask from "../utils/phoneMask";
@@ -40,14 +34,14 @@ const FormSubmit: React.FC<Props> = (props) => {
   const handlerOnBlurPhone = () => {
     if (isValidPhone(phone)) {
       setPhoneStatus((prev) => ({
-        valid: true,
+        className: "correct",
         text: "Номер получателя",
       }));
     } else {
       setPhoneStatus((prev) => ({
-        valid: false,
+        className: "wrong",
         text: "Не верный номер",
-      }))
+      }));
     }
   };
 
@@ -61,11 +55,11 @@ const FormSubmit: React.FC<Props> = (props) => {
     const isValidSum: boolean = !Number(sum) || Number(sum) > 1000;
     if (isValidSum) {
       setSumStatus((prev) => ({
-        valid: false,
+        className: "wrong",
         text: "Не верная сумма платежа",
-      }))
+      }));
     } else {
-      setSumStatus((prev) => ({ valid: true, text: "Сумма платежа" }));
+      setSumStatus((prev) => ({ className: "correct", text: "Сумма платежа" }));
     }
   };
 
