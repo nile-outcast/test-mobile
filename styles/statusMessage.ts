@@ -10,7 +10,7 @@ export const MessageConteiner = styled.div<MesStatus>`
   z-index: 99;
   opacity: 0.3;
   background-color: gray;
-  display: ${(props) => (props.display ? "" : "none")};
+  display: ${(props) => props.display};
 `;
 
 export const StatusMessageDiv = styled.div<MesStatus>`
@@ -20,7 +20,7 @@ export const StatusMessageDiv = styled.div<MesStatus>`
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 100;
-  display: ${(props) => (props.display ? "" : "none")};
+  display: ${(props) => props.display};
   padding: 0 1em;
   background-color: white;
   border: 1.5px solid gray;
