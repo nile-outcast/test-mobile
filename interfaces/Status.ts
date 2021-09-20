@@ -1,5 +1,5 @@
 export interface MesStatus {
-  display: boolean;
+  display: string;
   status?: number;
   message?: string;
 }

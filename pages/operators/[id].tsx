@@ -20,13 +20,13 @@ export default function Operator() {
   const tabIndex: number = -1;
 
   const [mesStatus, setMesStatus] = useState<MesStatus>({
-    display: false,
+    display: "none",
   });
 
   const handlerOnClick = () => {
     if (mesStatus.status == 200) router.push("/");
     setMesStatus((prev) => ({
-      display: false,
+      display: "none",
     }));
     document.body.style.overflow = "auto";
   };
@@ -54,12 +54,12 @@ export default function Operator() {
 
     try {
       const res = await fetch(
-        `http://localhost:3000/api/operators/${router.query.id}`
-        //`https://test-mobile.now.sh/api/operators/${router.query.id}`
+        //`http://localhost:3000/api/operators/${router.query.id}`
+        `https://test-mobile.vercel.app/api/operators/${router.query.id}`
       );
       const data = await res.json();
       setMesStatus((prev) => ({
-        display: true,
+        display: "",
         status: res.status,
         message: data.message,
       }));
