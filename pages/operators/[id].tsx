@@ -2,7 +2,6 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import fetch from "node-fetch";
 import { useState, useRef, FormEvent } from "react";
-import Page from "../../components/Page";
 import FormSubmit from "../../components/FormSubmit";
 import StatusMessage from "../../components/StatusMessage";
 import isValidPhone from "../../utils/isValidPhone";
@@ -55,8 +54,8 @@ export default function Operator() {
 
     try {
       const res = await fetch(
-        //`http://localhost:3000/api/operators/${router.query.id}`
-        `https://test-mobile.now.sh/api/operators/${router.query.id}`
+        `http://localhost:3000/api/operators/${router.query.id}`
+        //`https://test-mobile.now.sh/api/operators/${router.query.id}`
       );
       const data = await res.json();
       setMesStatus((prev) => ({
@@ -73,7 +72,7 @@ export default function Operator() {
   };
 
   return (
-    <Page>
+    <>
       <Title>{router.query.id}</Title>
       <FormSubmit handlerOnSubmit={handlerOnSubmit} />
       <Link href="/">
@@ -88,6 +87,6 @@ export default function Operator() {
       >
         <StatusMessage status={mesStatus} />
       </div>
-    </Page>
+    </>
   );
 }
