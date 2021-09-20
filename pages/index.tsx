@@ -1,7 +1,7 @@
 import { GetStaticProps } from "next";
 import { List } from "../interfaces/List";
 
-import Operator from "../components/Operator";
+import OperatorList from "../components/OperatorList";
 import { Title } from "../styles/header";
 import fetch from "node-fetch";
 
@@ -12,7 +12,7 @@ type Props = {
 const Index: React.FC<Props> = ({ list }) => (
   <>
     <Title>Выберите оператора</Title>
-    <Operator list={list} />
+    <OperatorList list={list} />
   </>
 );
 

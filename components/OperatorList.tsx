@@ -7,7 +7,7 @@ type Props = {
   list: List[];
 }
 
-const Operator: React.FC<Props> = ({ list }) => {
+const OperatorList: React.FC<Props> = ({ list }) => {
   const length: number = list.length;
   return (
     <Ul length={length}>
@@ -24,4 +24,4 @@ const Operator: React.FC<Props> = ({ list }) => {
   );
 };
 
-export default Operator;
+export default OperatorList;
