@@ -76,7 +76,7 @@ export default function Operator() {
       <Title>{router.query.id}</Title>
       <FormSubmit handlerOnSubmit={handlerOnSubmit} />
       <Link href="/">
-        <Button>Выбать оператора</Button>
+        <Button>Выбрать оператора</Button>
       </Link>
       <div
         onClick={handlerOnClick}
